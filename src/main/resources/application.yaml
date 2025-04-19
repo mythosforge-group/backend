@@ -3,3 +3,6 @@ spring:
         name: fable-minds
     profiles:
         active: dev
+    output:
+        ansi:
+            enabled: ALWAYS
