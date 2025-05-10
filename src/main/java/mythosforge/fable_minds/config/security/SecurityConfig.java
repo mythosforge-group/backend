@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+// import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -39,6 +39,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/auth/**").permitAll() // Permite OPTIONS para CORS
                         .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/users/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/api/groq/**").authenticated()
                         .requestMatchers("/v3/**").permitAll() // Libera Swagger UI
                         .requestMatchers("/swagger-ui/**").permitAll() // Libera Swagger UI
                         .requestMatchers("/h2-console/**").permitAll() // Libera h2-console
